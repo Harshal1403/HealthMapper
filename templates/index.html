@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HealthMapper - Disease Options</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url("/static/images/coffee-cup-keyboard-with-copy-space.jpg"); /* Your background image */
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Navbar styling */
+        .navbar {
+            background-color: rgba(52, 73, 94, 0.8); /* Adjusted opacity for the navbar */
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .navbar-left h2 {
+            margin: 0;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .navbar-links {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .navbar-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+            padding: 5px 8px;
+            font-weight: 500;
+        }
+
+        .navbar-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* Sidebar styling */
+        .sidebar {
+            width: 220px;
+            background-color: rgba(93, 173, 226, 0.8); /* Adjusted to RGBA for transparency */
+            color: white;
+            padding: 20px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            height: 100vh;
+            position: fixed;
+            top: 60px; /* Adjust to fit below the navbar */
+            left: 0;
+        }
+
+        .sidebar h3 {
+            margin-top: 0;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .sidebar button {
+            background-color: #2980b9;
+            color: white;
+            border: none;
+            width: 100%;
+            padding: 12px;
+            margin: 6px 0;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .sidebar button:hover {
+            background-color: #1f618d;
+        }
+
+        /* Main content styling */
+        .main-content {
+            margin-left: 250px; /* Ensure it aligns with the sidebar */
+            padding: 30px;
+            margin-top: 80px; /* Space for the navbar */
+            color: #34495e; /* Ensure text is visible */
+        }
+
+        /* Additional styling */
+        h1 {
+            color: #34495e;
+            font-size: 2rem;
+            font-weight: 600;
+        }
+
+        p, h3 {
+            color: #34495e;
+        }
+
+        p {
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="navbar-left">
+            <h2>HealthMapper</h2>
+        </div>
+        <div class="navbar-links">
+            <a href="{{ url_for('index') }}">Home</a>
+            <a href="#">Chatbot</a>
+            <a href="#">Feedback</a>
+            <button class="logout-btn" onclick="location.href='/logout'">Logout</button>
+        </div>
+    </div>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h3>Disease Prediction Options</h3>
+        <button onclick="location.href='/disease1'">Diabetes</button>
+        <button onclick="location.href='/disease2'">Heart Disease</button>
+        <button onclick="location.href='/disease3'">Kidney Disease</button>
+        <button onclick="location.href='/disease4'">Pneumonia</button>
+    </div>
+
+    <!-- Main Content Area -->
+    <div class="main-content">
+        <h1>Welcome to the Disease Prediction Section</h1>
+        <p>Select a disease to predict using the options on the left.</p>
+        
+        <h3>About HealthMapper</h3>
+        <p>HealthMapper is an innovative web application designed to help users proactively manage their health. By predicting various diseases using advanced machine learning algorithms, we aim to provide early detection and personalized care, ultimately improving health outcomes and reducing healthcare costs.</p>
+    </div>
+
+</body>
+</html>

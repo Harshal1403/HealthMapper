@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        /* Basic body styling */
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5; /* Match login background */
+            background-image: url("https://img.freepik.com/free-photo/frame-medical-equipment-desk_23-2148519742.jpg?t=st=1730823310~exp=1730826910~hmac=fb6c45d320caa2179eac34ad9a1052ec7a224efbc74f7724af89f2a22e609849&w=1060"); /* Match login background image */
+            background-size: cover; /* Adjust the image size as needed */
+            background-repeat: no-repeat; /* Prevent image repetition */
+            background-position: center; /* Center the image */
+            background-color: rgba(0, 0, 0, 0.5); /* Add a semi-transparent overlay */
+        }
+
+        /* Title styling */
+        h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        /* Centered form container */
+        .form-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            width: 300px;
+            border-radius: 15px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #F0F8FF; /* Match login form background */
+            margin: 0 auto;
+        }
+
+        /* Flash message styling */
+        .flash-message {
+            margin-bottom: 15px;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 0.9rem;
+        }
+        .flash-message.success {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .flash-message.danger {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+
+        /* Label styling */
+        label {
+            align-self: flex-start;
+            margin-bottom: 5px;
+            font-size: 1rem;
+            color: #333;
+            text-align: center;
+            margin-bottom: 5px;
+        }
+
+        /* Input field styling */
+        input[type="text"],
+        input[type="password"] {
+            width: 92%; /* Match width with login form */
+            padding: 10px; /* Remove unnecessary spaces */
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        /* Button styling */
+        button {
+            width: 98.5%; /* Match width with login form */
+            padding: 12px 12px;
+            font-size: 1.1rem;
+            color: #fff;
+            background-color: #3498db;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin: 10px auto 0 auto;
+        }
+
+        /* Hover effect for the button */
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        /* Link styling */
+        a {
+            margin-top: 15px;
+            font-size: 0.9rem;
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h2>Signup</h2>
+
+    <!-- Flash messages -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          <div class="flash-message {{ category }}">{{ message }}</div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+    <!-- Centered signup form container -->
+    <div class="form-container">
+        <form method="POST">
+            <label for="username">Username:</label>
+            <input type="text" name="username" required>
+            <label for="password">Password:</label>
+            <input type="password" name="password" required>
+            <button type="submit">Signup</button>
+        </form>
+        <a href="{{ url_for('login') }}">Already have an account? Login here</a>
+    </div>
+</body>
+</html>
